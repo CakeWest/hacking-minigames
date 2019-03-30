@@ -1,0 +1,11 @@
+{
+  "name": "hacking-minigames-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": ""
+  },
+  "author": "Jake Holmes",
+  "license": "ISC"
+}
