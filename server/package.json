@@ -4,7 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": ""
+    "dev": "nodemon server.js",
+    "dev-client": "concurrently \"npm run dev\" \"cd ../client && npm run dev\""
   },
   "author": "Jake Holmes",
   "license": "ISC",
