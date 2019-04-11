@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "dev": "nodemon server.js",
-    "dev-client": "concurrently \"npm run dev\" \"cd ../client && npm run dev\""
+    "client": "npm run dev --prefix ../client",
+    "dev-client": "concurrently \"npm run dev\" \"npm run client\""
   },
   "author": "Jake Holmes",
   "license": "ISC",
