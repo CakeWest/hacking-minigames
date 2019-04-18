@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "nodemon server.js",
     "client": "npm run dev --prefix ../client",
-    "dev-client": "concurrently \"npm run dev\" \"npm run client\""
+    "dev-client": "concurrently \"npm run dev\" \"npm run client\"",
+    "test": "mocha ./tests --recursive"
   },
   "author": "Jake Holmes",
   "license": "ISC",
