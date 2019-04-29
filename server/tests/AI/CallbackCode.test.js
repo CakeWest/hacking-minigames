@@ -57,16 +57,12 @@ describe("CallbackCode", function() {
 });
 
 function containsDuplicates(arr) {
-  let containsDuplicates = false;
   let found = [];
 
-  containsDuplicates = arr.some(function(item) {
+  return arr.some(function(item) {
     if (found.includes(item)) {
-      // console.log('found includes item')
       return true;
     }
     found.push(item);
   });
-
-  return containsDuplicates;
 }
