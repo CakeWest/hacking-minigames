@@ -11,7 +11,7 @@ class AIGame {
     this.countdownDuration = 10;
     this.callbackIndex = 0;
     this.roundIndex = 0;
-    this.targetFrequency = 0;
+    this.targetFrequency = Math.floor(Math.random() * 360 + 1);
     this.rounds = [];
 
     // Build first round's menu & sequence
