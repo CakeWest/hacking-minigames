@@ -90,8 +90,8 @@ class AIGame {
   }
 
   static checkTimeout(game) {
-    let secondsPassed = (Date.now() - game.countDownStart) / 1000;
-    if (secondsPassed >= game.countDownDuration) {
+    let secondsPassed = (Date.now() - game.countdownStart) / 1000;
+    if (secondsPassed >= game.countdownDuration) {
       AIGame.setState(game, "game-over");
       return true;
     } else {
