@@ -3,39 +3,32 @@ const path = require("path");
 const cors = require("cors");
 const mongoose = require("mongoose");
 
+const AIDatabaseCleaner = require("./util/AI/AIDatabaseCleaner");
 const app = express();
+const port = process.env.PORT || 5000;
 
-// CORS
-if (process.env.NODE_ENV !== "production") {
-  app.use(cors());
-}
+AIDatabaseCleaner.updateTimedOutGames();
+AIDatabaseCleaner.updateOldGames();
 
-// Body parser middleware
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-
-// Mongoose
-const mongoURI = require("./config/keys").mongoURI;
-mongoose
-  .connect(mongoURI, { useNewUrlParser: true })
-  .then(() => console.log("MongoDB Connected"))
-  .catch(err => console.log(err));
-
-// API
-app.use("/api/ai/play", require("./routes/api/ai/play"));
-app.use("/api/ai/scores", require("./routes/api/ai/scores"));
-
-// SPA
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
-
   app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });
+} else {
+  app.use(cors());
+  require("dotenv").config();
 }
 
-// Serve
-const port = process.env.PORT || 5000;
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+app.use("/api/ai/play", require("./routes/api/ai/play"));
+
+mongoose
+  .connect(process.env.MONGO_URI, { useNewUrlParser: true })
+  .then(() => console.log("MongoDB Connected"))
+  .catch(err => console.log(err));
 
 app.listen(port, () => {
   console.log(`Server started on port ${port}`);
