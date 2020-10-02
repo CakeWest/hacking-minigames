@@ -3,6 +3,8 @@ import { BrowserRouter, Route } from "react-router-dom";
 
 import AlienIsolation from "components/AlienIsolation.js";
 
+import "./app.css";
+
 class App extends Component {
   render() {
     return (
