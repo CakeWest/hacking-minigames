@@ -1,4 +1,4 @@
-import { OPEN_CONTINUE_MODAL, CLOSE_CONTINUE_MODAL } from "../actions/types";
+import { CONTINUE_MODAL_OPEN, CONTINUE_MODAL_CLOSE } from "../actions/types";
 
 const initialState = {
   showContinueModal: false,
@@ -6,8 +6,8 @@ const initialState = {
 
 export default function (state = initialState, action) {
   switch (action.type) {
-    case OPEN_CONTINUE_MODAL:
-    case CLOSE_CONTINUE_MODAL:
+    case CONTINUE_MODAL_OPEN:
+    case CONTINUE_MODAL_CLOSE:
       return {
         ...state,
         showContinueModal: action.payload,

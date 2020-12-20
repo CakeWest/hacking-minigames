@@ -1,20 +1,18 @@
 import {
-  RECEIVE_GAME,
-  RECEIVE_ERROR,
-  CLEAR_GAME,
-  SET_CURRENT_FREQUENCY,
-  SET_IS_TUNED,
+  GAME_RECEIVED,
+  GAME_CLEARED,
+  TUNER_SET_FREQUENCY,
+  TUNER_SET_IS_TUNED,
 } from "../actions/types";
 
 const initialState = null;
 
 export default function (state = initialState, action) {
   switch (action.type) {
-    case RECEIVE_GAME:
-    case RECEIVE_ERROR:
-    case CLEAR_GAME:
+    case GAME_RECEIVED:
+    case GAME_CLEARED:
       return action.payload;
-    case SET_CURRENT_FREQUENCY:
+    case TUNER_SET_FREQUENCY:
       return {
         ...state,
         tuner: {
@@ -22,7 +20,7 @@ export default function (state = initialState, action) {
           currentFrequency: action.payload,
         },
       };
-    case SET_IS_TUNED:
+    case TUNER_SET_IS_TUNED:
       return {
         ...state,
         tuner: {
