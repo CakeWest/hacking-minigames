@@ -2,16 +2,14 @@ import { createStore, combineReducers, applyMiddleware } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 
-import game from "./reducers/gameReducer";
-import ui from "./reducers/uiReducer";
-import error from "./reducers/errorReducer.js";
-import tuner from "./reducers/tunerReducer.js";
+import gameReducer from "./reducers/gameReducer";
+import uiReducer from "./reducers/uiReducer";
+import errorReducer from "./reducers/errorReducer.js";
 
 const rootReducer = combineReducers({
-  game,
-  tuner,
-  ui,
-  error,
+  game: gameReducer,
+  ui: uiReducer,
+  error: errorReducer,
 });
 
 const middleWare = [thunk];
